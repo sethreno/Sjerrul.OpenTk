@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjerrul.OpenTk.GetStarted", "Sjerrul.OpenTk\Sjerrul.OpenTk.GetStarted.csproj", "{E4990A0A-1E87-4A2E-A59B-37B84C4BFD70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjerrul.OpenTk.Clock", "Sjerrul.OpenTk\Sjerrul.OpenTk.Clock.csproj", "{E4990A0A-1E87-4A2E-A59B-37B84C4BFD70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjerrul.OpenTk.Cube", "Sjerrul.OpenTk.Cube\Sjerrul.OpenTk.Cube.csproj", "{9C723694-AB2F-4EDA-8A60-922E96E7C936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{E4990A0A-1E87-4A2E-A59B-37B84C4BFD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4990A0A-1E87-4A2E-A59B-37B84C4BFD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4990A0A-1E87-4A2E-A59B-37B84C4BFD70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C723694-AB2F-4EDA-8A60-922E96E7C936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C723694-AB2F-4EDA-8A60-922E96E7C936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C723694-AB2F-4EDA-8A60-922E96E7C936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C723694-AB2F-4EDA-8A60-922E96E7C936}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
