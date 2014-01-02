@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjerrul.OpenTk.Clock", "Sje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjerrul.OpenTk.Cube", "Sjerrul.OpenTk.Cube\Sjerrul.OpenTk.Cube.csproj", "{9C723694-AB2F-4EDA-8A60-922E96E7C936}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjerrul.OpenTk.SolarSystem", "Sjerrul.OpenTk.SolarSystem\Sjerrul.OpenTk.SolarSystem.csproj", "{2ACFDBC3-2B1B-4E61-8EA4-DF45F566A6E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{9C723694-AB2F-4EDA-8A60-922E96E7C936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C723694-AB2F-4EDA-8A60-922E96E7C936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C723694-AB2F-4EDA-8A60-922E96E7C936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACFDBC3-2B1B-4E61-8EA4-DF45F566A6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACFDBC3-2B1B-4E61-8EA4-DF45F566A6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACFDBC3-2B1B-4E61-8EA4-DF45F566A6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACFDBC3-2B1B-4E61-8EA4-DF45F566A6E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

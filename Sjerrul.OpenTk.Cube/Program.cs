@@ -11,6 +11,7 @@ namespace Sjerrul.OpenTk
 	class Program : GameWindow
     {
         private float _height = 1f;
+        private float _distance = -5f;
         #region Coordinates 
         
         float[] cubeColors = {
@@ -76,6 +77,27 @@ namespace Sjerrul.OpenTk
             {
                 _height = _height - 0.2f;
             }
+
+            if (e.Key == Key.Left)
+            {
+                cameraRotation = cameraRotation + 0.1f;
+            }
+
+            if (e.Key == Key.Right)
+            {
+                cameraRotation = cameraRotation - 0.1f;
+            }
+
+            if (e.Key == Key.PageUp)
+            {
+                _distance = _distance - 0.2f;
+            }
+
+            if (e.Key == Key.PageDown)
+            {
+                _distance = _distance + 0.2f;
+                
+            }
 		}
 
 		protected override void OnLoad(EventArgs e)
@@ -84,8 +106,8 @@ namespace Sjerrul.OpenTk
             GL.ClearColor(Color.CornflowerBlue);
             GL.Enable(EnableCap.DepthTest);
             GL.Enable(EnableCap.CullFace);
-            GL.EnableClientState(EnableCap.VertexArray);
-            GL.EnableClientState(EnableCap.ColorArray);
+            GL.EnableClientState(ArrayCap.VertexArray);
+            GL.EnableClientState(ArrayCap.ColorArray);
 		}
 
 		protected override void OnUpdateFrame(FrameEventArgs e)
@@ -109,11 +131,9 @@ namespace Sjerrul.OpenTk
 
             #region Camera
 
-            cameraRotation = (cameraRotation < 360f) ? (cameraRotation + 1f * (float)e.Time) : 0f;
-           // cameraRotation = -150;
             Matrix4.CreateRotationY(cameraRotation, out matrixModelview);
 
-            Vector3 eye = new Vector3(0f, _height, -5f);
+            Vector3 eye = new Vector3(0f, _height, _distance);
             Vector3 target = new Vector3(0f, 0f, 0f);
             Vector3 up = new Vector3(0f, 1f, 0f);
 
