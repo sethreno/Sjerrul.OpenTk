@@ -15,6 +15,11 @@ namespace Sjerrul.OpenTk.SolarSystem
         private float _rotation;
         private float _rotationSpeed;
         private float _orbit;
+        private float _orbitSpeed;
+        private Coordinates _coordinates;
+        private float _angle = 0;
+        private Body _parent;
+
 
         float[] cubeColors;
 
@@ -36,12 +41,15 @@ namespace Sjerrul.OpenTk.SolarSystem
 
         float[] cube;
 
-        public Body(float radius, float rotationSpeed, float orbit, Color color)
+        public Body(Body parent, float radius, float rotationSpeed, float orbit, float orbitSpeed, Color color)
         {
             _radius = radius;
             _rotation = 0.0f;
             _rotationSpeed = rotationSpeed;
             _orbit = orbit;
+            _coordinates = new Coordinates();
+            _parent = parent;
+            _orbitSpeed = orbitSpeed;
 
             cube = new float[] {
 			-_radius,  _radius,  _radius, // vertex[0]
@@ -69,7 +77,18 @@ namespace Sjerrul.OpenTk.SolarSystem
 
         public void Update(double elapsedTime)
         {
-            _rotation = (float)(_rotation + (_rotationSpeed * elapsedTime));
+            _rotation = (_rotation > 360) ? 0 : (float)(_rotation + (_rotationSpeed * elapsedTime));
+
+            _angle = (float)(_angle + (_orbitSpeed * elapsedTime ));
+
+            _coordinates.X = _parent == null ? 0 : (_orbit * Math.Cos(_angle));
+            _coordinates.Y = _parent == null ? 0 : (_orbit * Math.Sin(_angle));
+
+            if (_parent != null)
+            {
+                _coordinates.X = _coordinates.X + _parent._coordinates.X;
+                _coordinates.Y = _coordinates.Y + _parent._coordinates.Y;
+            }
 
         }
 
@@ -80,16 +99,20 @@ namespace Sjerrul.OpenTk.SolarSystem
             //GL.MatrixMode(MatrixMode.Modelview);
             //GL.LoadMatrix(ref matrixModelview);
 
+          
+
+            GL.Translate(_coordinates.X, 0, _coordinates.Y);
             GL.Rotate(_rotation, 0f, 1f, 0f);
-            GL.Translate(_orbit, 0, 0);
+            //GL.Rotate(-_rotation, 0f, 1f, 0f);
+           
             
 
             GL.VertexPointer(3, VertexPointerType.Float, 0, cube);
             GL.ColorPointer(4, ColorPointerType.Float, 0, cubeColors);
             GL.DrawElements(PrimitiveType.Triangles, 36, DrawElementsType.UnsignedByte, triangles);
 
-            //GL.Rotate(-_rotation, 0f, 1f, 0f);
-            //GL.Translate(-_orbit, 0, 0);
+            GL.Rotate(-_rotation, 0f, 1f, 0f);
+            GL.Translate(-_coordinates.X, 0, -_coordinates.Y);
         }
 
     }

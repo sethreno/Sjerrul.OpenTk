@@ -13,7 +13,8 @@ namespace Sjerrul.OpenTk
         private Body _sun;
         private Body _earth;
         private Body _moon;
-        private float _height;
+        private Body _mars;
+        private float _height = 5f;
 
         Matrix4 matrixModelview;
         float cameraRotation = 0f;
@@ -23,9 +24,10 @@ namespace Sjerrul.OpenTk
 		{
 			Keyboard.KeyDown += new EventHandler<KeyboardKeyEventArgs>(Keyboard_KeyDown);
 
-            _sun = new Body(0.5f, 5, 0, Color.Yellow);
-            _earth = new Body(0.2f, 60, 2, Color.Green);
-            _moon = new Body(0.05f, 60, 1, Color.White);
+            _sun = new Body(null, 0.5f, 5, 0, 0, Color.Yellow);
+            _earth = new Body(_sun, 0.2f, 60, 2, 1, Color.Green);
+            _moon = new Body(_earth, 0.05f, 60, 1, 3, Color.White);
+            _mars = new Body(_sun, 0.25f, 60, 3f, 0.75f, Color.Red);
 		}
 
 		void Keyboard_KeyDown(object sender, KeyboardKeyEventArgs e)
@@ -59,6 +61,7 @@ namespace Sjerrul.OpenTk
             _sun.Update(e.Time);
             _earth.Update(e.Time);
             _moon.Update(e.Time);
+            _mars.Update(e.Time);
 		}
 
 		protected override void OnResize(EventArgs e)
@@ -93,6 +96,7 @@ namespace Sjerrul.OpenTk
             _sun.Render();
             _earth.Render();
             _moon.Render();
+            _mars.Render();
 
             SwapBuffers();
 		}
