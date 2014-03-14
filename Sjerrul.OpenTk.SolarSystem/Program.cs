@@ -52,6 +52,12 @@ namespace Sjerrul.OpenTk
             GL.ClearColor(Color.Black);
             GL.Enable(EnableCap.DepthTest);
             GL.Enable(EnableCap.CullFace);
+           // GL.Enable(EnableCap.Lighting);
+           // GL.Enable(EnableCap.Light0);
+
+            //GL.Light(LightName.Light0, LightParameter.Position, new Vector4(0,0,0,1)); 
+
+
             GL.EnableClientState(ArrayCap.VertexArray);
             GL.EnableClientState(ArrayCap.ColorArray);
 		}

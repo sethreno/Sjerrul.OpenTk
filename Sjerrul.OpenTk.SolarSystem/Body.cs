@@ -109,6 +109,9 @@ namespace Sjerrul.OpenTk.SolarSystem
 
             GL.VertexPointer(3, VertexPointerType.Float, 0, cube);
             GL.ColorPointer(4, ColorPointerType.Float, 0, cubeColors);
+
+            GL.Material(MaterialFace.FrontAndBack, MaterialParameter.Diffuse, 1);
+
             GL.DrawElements(PrimitiveType.Triangles, 36, DrawElementsType.UnsignedByte, triangles);
 
             GL.Rotate(-_rotation, 0f, 1f, 0f);
